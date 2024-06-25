@@ -1,0 +1,28 @@
+.castItem {
+  width: calc(100% / 7);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  flex: 0 0 calc(100% / 7);
+  padding: 1rem 2rem;
+  text-align: center;
+
+  .cast-profile-img {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--rounded-full);
+    object-fit: cover;
+    background: var(--secondary-color);
+  }
+
+  .realName {
+    font-size: 1.8rem;
+    color: var(--text-color);
+  }
+
+  .characterName {
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+}

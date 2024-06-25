@@ -1,0 +1,138 @@
+.navbar-header {
+  width: 100%;
+  color: var(--text-color);
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  transition: all 0.5s;
+  height: 6.8rem;
+  display: flex;
+  align-items: center;
+  padding-inline: 5rem;
+
+  .navbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.6rem;
+
+    .navbar-left,
+    .navbar-right {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .navbar-left {
+      .logo {
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-right: 2rem;
+        color: var(--primary-color);
+        font-size: 2rem;
+        font-weight: 800;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        flex: 1;
+        width: 100%;
+
+        .nav-link {
+          color: var(--link-color);
+          flex-wrap: nowrap;
+
+          &:hover {
+            color: var(--link-hover-color);
+          }
+        }
+
+        .nav-link.active {
+          color: var(--text-color);
+        }
+      }
+    }
+
+    .navbar-right {
+      flex: 1;
+      justify-content: end;
+
+      .search {
+        display: flex;
+        align-items: center;
+        max-width: 30rem;
+        transition: all 1s;
+        overflow: hidden;
+        border: 1px solid transparent;
+
+        .search-icon {
+          height: 3rem;
+          width: 3rem;
+          cursor: pointer;
+        }
+
+        .searchInp {
+          border: none;
+          font-size: 1.6rem;
+          color: var(--text-color);
+          width: 100%;
+          flex: 1;
+          background-color: transparent;
+
+          &:focus {
+            outline: none;
+          }
+        }
+
+        .searchInp.inactive {
+          width: 0;
+        }
+      }
+
+      .search.active {
+        border-color: var(--text-color);
+        background-color: var(--main-color);
+        width: 100%;
+      }
+
+      .search.inactive {
+        width: 3rem;
+      }
+
+      .user {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+
+        .drop-down-icon,
+        .notification-icon {
+          height: 3rem;
+          width: 3rem;
+          cursor: pointer;
+        }
+
+        .profile {
+          display: flex;
+          align-items: center;
+
+          .profileImg {
+            width: 3rem;
+            height: 3rem;
+            object-fit: cover;
+            border-radius: var(--rounded-md);
+          }
+        }
+      }
+
+      .menu {
+        display: none;
+        width: 3rem;
+        height: 3rem;
+      }
+    }
+  }
+}

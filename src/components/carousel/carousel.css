@@ -1,0 +1,81 @@
+.carousel {
+  width: 100%;
+  margin-bottom: 6rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+
+  .carousel-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+
+    .arrow-btn {
+      visibility: hidden;
+      opacity: 0;
+      position: absolute;
+      width: 5rem;
+      top: 0;
+      bottom: 0;
+      margin: 0.5rem 0;
+      border: none;
+      background: #14141463;
+      color: var(--text-color);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      z-index: 10;
+
+      &:hover {
+        background: #14141487;
+
+        .arrow-icon {
+          width: 4rem;
+          height: 4rem;
+        }
+      }
+
+      .arrow-icon {
+        width: 3rem;
+        height: 3rem;
+        transition: all 0.2s ease;
+      }
+    }
+
+    .arrow-left {
+      left: 0;
+      border-top-right-radius: var(--rounded-md);
+      border-bottom-right-radius: var(--rounded-md);
+    }
+
+    .arrow-right {
+      right: 0;
+      border-top-left-radius: var(--rounded-md);
+      border-bottom-left-radius: var(--rounded-md);
+    }
+
+    .carousel-slider {
+      display: flex;
+      width: 100%;
+      transition: all 1s ease;
+      overflow-x: auto;
+      overscroll-behavior-inline: contain;
+      scroll-snap-type: inline mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      scroll-padding-inline: 5rem;
+      padding-inline: 5rem;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+
+  .carousel-wrapper:hover .arrow-btn {
+    visibility: visible;
+    opacity: 1;
+  }
+}

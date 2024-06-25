@@ -1,0 +1,49 @@
+.trailerItem {
+  width: calc(100% / 4);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 0 0 calc(100% / 4);
+  padding: 1rem 2rem;
+  cursor: pointer;
+
+  .thumbnail {
+    width: 100%;
+    height: fit-content;
+    position: relative;
+
+    .thumbnail-img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+      object-fit: cover;
+      filter: brightness(0.8);
+      transition: all 0.3s ease;
+    }
+  }
+
+  .trailer-play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 6rem;
+    transition: all 0.3s ease;
+  }
+
+  .trailer-title {
+    font-size: 1.6rem;
+    font-weight: 300;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+    color: var(--text-color);
+  }
+}
+
+.trailerItem:hover .trailer-play-icon {
+  color: var(--primary-color);
+}
+
+.trailerItem:hover .thumbnail-img {
+  filter: brightness(0.6);
+}
