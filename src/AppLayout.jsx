@@ -75,7 +75,11 @@ function AppLayout() {
 	return (
 		<div className="app-layout">
 			<Navbar background={background} />
-			<main ref={container} className="main">
+			<main
+				ref={container}
+				className="main"
+				style={{ display: `${isLoading ? "flex" : "unset"}` }}
+			>
 				{isLoading ? (
 					<Loader color="white" height="5rem" width="5rem" />
 				) : (

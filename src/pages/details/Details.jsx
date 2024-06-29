@@ -38,14 +38,14 @@ function Details() {
 			{data && (
 				<>
 					<div className="details">
-						<div className="shadow"></div>
-						<div className="bottom"></div>
-						<img
-							src={`${url?.backdrop}${data?.backdrop_path}`}
-							alt={data?.title || data?.original_name}
-							className="bg-img"
-						/>
 						<div className="details-wrapper">
+							<img
+								src={`${url?.backdrop}${data?.backdrop_path}`}
+								alt={data?.title || data?.original_name}
+								className="bg-img"
+							/>
+							<div className="shadow"></div>
+							<div className="bottom"></div>
 							<div className="details-left">
 								<img
 									src={`${url?.poster}${data?.poster_path}`}
