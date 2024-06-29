@@ -18,6 +18,12 @@
     overflow-x: scroll;
     padding-left: 3.5rem;
     padding-right: 3.5rem;
+
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }
 
