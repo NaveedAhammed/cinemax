@@ -14,6 +14,7 @@
     align-items: center;
 
     .arrow-btn {
+      display: none;
       visibility: hidden;
       opacity: 0;
       position: absolute;
@@ -65,8 +66,8 @@
       scroll-snap-type: inline mandatory;
       scroll-behavior: smooth;
       scrollbar-width: none;
-      scroll-padding-inline: 5rem;
-      padding-inline: 5rem;
+      scroll-padding-inline: 3rem;
+      padding-inline: 3rem;
 
       &::-webkit-scrollbar {
         display: none;
@@ -77,5 +78,21 @@
   .carousel-wrapper:hover .arrow-btn {
     visibility: visible;
     opacity: 1;
+  }
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 1400px) {
+  .carousel {
+    .carousel-wrapper {
+      .arrow-btn {
+        display: inline-block;
+      }
+
+      .carousel-slider {
+        scroll-padding-inline: 5rem;
+        padding-inline: 5rem;
+      }
+    }
   }
 }

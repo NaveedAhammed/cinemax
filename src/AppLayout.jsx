@@ -7,11 +7,13 @@ import { useEffect, useRef, useState } from "react";
 import { fetchDataFromApi } from "./service/api";
 import { useDispatch } from "react-redux";
 import { getApiConfiguration, getGenres } from "./store/homeSlice";
+import Loader from "./components/loader/Loader";
 
 function AppLayout() {
 	const container = useRef();
 	const [scrollAmount, setScrollAmount] = useState(0);
 	const dispatch = useDispatch();
+	const [isLoading, setIsLoading] = useState(false);
 
 	const background =
 		scrollAmount <= 200
@@ -30,27 +32,40 @@ function AppLayout() {
 
 	useEffect(
 		function () {
-			async function getInfo() {
-				const data = await Promise.all([
+			function getInfo() {
+				setIsLoading(true);
+				Promise.all([
 					fetchDataFromApi(`/genre/tv/list`),
 					fetchDataFromApi(`/genre/movie/list`),
 					fetchDataFromApi(`/configuration`),
-				]);
-				const allGenres = {};
-				data[1].genres.map((item) => (allGenres[item.id] = item));
-				data[0].genres.map((item) => (allGenres[item.id] = item));
-				const genres = {
-					movie: data[1].genres,
-					tv: data[0].genres,
-					allGenres,
-				};
-				const url = {
-					backdrop: data[2].images.secure_base_url + "original",
-					poster: data[2].images.secure_base_url + "original",
-					profile: data[2].images.secure_base_url + "original",
-				};
-				dispatch(getGenres(genres));
-				dispatch(getApiConfiguration(url));
+				])
+					.then((data) => {
+						const allGenres = {};
+						data[1].genres.map(
+							(item) => (allGenres[item.id] = item)
+						);
+						data[0].genres.map(
+							(item) => (allGenres[item.id] = item)
+						);
+						const genres = {
+							movie: data[1].genres,
+							tv: data[0].genres,
+							allGenres,
+						};
+						const url = {
+							backdrop:
+								data[2].images.secure_base_url + "original",
+							poster: data[2].images.secure_base_url + "original",
+							profile:
+								data[2].images.secure_base_url + "original",
+						};
+						dispatch(getGenres(genres));
+						dispatch(getApiConfiguration(url));
+					})
+					.catch((err) => console.log(err))
+					.finally(() => {
+						setIsLoading(false);
+					});
 			}
 			getInfo();
 		},
@@ -60,8 +75,12 @@ function AppLayout() {
 	return (
 		<div className="app-layout">
 			<Navbar background={background} />
-			<main ref={container}>
-				<Outlet />
+			<main ref={container} className="main">
+				{isLoading ? (
+					<Loader color="white" height="5rem" width="5rem" />
+				) : (
+					<Outlet />
+				)}
 			</main>
 			<Footer />
 		</div>

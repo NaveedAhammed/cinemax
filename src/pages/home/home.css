@@ -1,6 +1,6 @@
 .home {
   width: 100%;
-  margin-top: -7rem;
+  margin-top: -8rem;
   overflow: hidden;
 
   .carousel-section {
@@ -15,14 +15,29 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-left: 5.5rem;
-      margin-right: 5.5rem;
+      padding-inline: 3rem;
     }
 
     .section-title {
       font-size: 2.4rem;
       font-weight: 400;
       color: var(--text-color);
+    }
+  }
+}
+
+@media (min-width: 560px) {
+  .home {
+    margin-top: -6.8rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .home {
+    .carousel-section {
+      .section-header {
+        padding-inline: 5.5rem;
+      }
     }
   }
 }

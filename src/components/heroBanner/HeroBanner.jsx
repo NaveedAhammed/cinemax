@@ -65,10 +65,12 @@ function HeroBanner({
 						</div>
 					</div>
 				</div>
-				<div className="hero-overview">
-					<span>Overview:</span>
-					<p>{heroBanner?.overview}</p>
-				</div>
+				{heroBanner?.overview && (
+					<div className="hero-overview">
+						<span>Overview:</span>
+						<p>{heroBanner.overview}</p>
+					</div>
+				)}
 				<div className="actions">
 					<button className={`btn primary`}>
 						<HiMiniPlay className="play-icon" />

@@ -1,6 +1,6 @@
 .heroBanner {
   width: 100%;
-  height: 100vh;
+  height: 80vh;
   position: relative;
   z-index: 9;
 
@@ -58,12 +58,12 @@
   .hero-details {
     position: absolute;
     bottom: 16rem;
-    left: 5.5rem;
+    left: 3rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
     z-index: 99;
-    width: 50%;
+    width: calc(100% - 6rem);
 
     .hero-title {
       font-size: 5rem;
@@ -118,7 +118,7 @@
     }
 
     .hero-overview {
-      display: flex;
+      display: none;
       flex-direction: column;
       gap: 5px;
 
@@ -171,6 +171,47 @@
         background-color: var(--secondary-color);
         color: var(--text-color);
       }
+    }
+  }
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 440px) {
+  .heroBanner {
+    .hero-details {
+      .hero-overview {
+        display: flex;
+      }
+    }
+  }
+}
+
+@media (min-width: 540px) {
+  .heroBanner {
+    .hero-details {
+      width: 80%;
+    }
+  }
+}
+
+@media (min-width: 820px) {
+  .heroBanner {
+    height: 100vh;
+  }
+}
+
+@media (min-width: 1150px) {
+  .heroBanner {
+    .hero-details {
+      width: 50%;
+    }
+  }
+}
+
+@media (min-width: 1400px) {
+  .heroBanner {
+    .hero-details {
+      left: 5.5rem;
     }
   }
 }

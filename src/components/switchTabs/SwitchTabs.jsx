@@ -1,13 +1,15 @@
 import "./switchTabs.css";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 function SwitchTabs({ data, onTabChange }) {
 	const [selectedTab, setSelectedTab] = useState(0);
 	const [left, setLeft] = useState(0);
+	const tabRef = useRef();
 
 	const handleActiveTab = (tab, index) => {
-		setLeft(index * 100);
+		const tabWidth = tabRef.current.clientWidth;
+		setLeft(index * tabWidth);
 		setTimeout(() => {
 			setSelectedTab(index);
 		}, 300);
@@ -24,6 +26,7 @@ function SwitchTabs({ data, onTabChange }) {
 							selectedTab === i ? "active" : "inactive"
 						}`}
 						onClick={() => handleActiveTab(tab, i)}
+						ref={tabRef}
 					>
 						{tab}
 					</span>
